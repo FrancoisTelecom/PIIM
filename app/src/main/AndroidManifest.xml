@@ -30,9 +30,6 @@
         <activity android:name=".ResultActivity"
             android:label="Result">
         </activity>
-        <activity android:name=".GestionPeripherique"
-            android:label="Periph">
-        </activity>
     </application>
 
 </manifest>

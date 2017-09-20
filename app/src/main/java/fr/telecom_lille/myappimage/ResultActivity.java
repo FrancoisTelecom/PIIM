@@ -17,20 +17,20 @@ import android.net.Uri;
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener{
     private Button Breturn = null; // creation des variables de la gestions des boutons
     private Button BGoWeb = null;
-    GestionPeripherique peripherique = new GestionPeripherique();
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        peripherique.createButton(Breturn,R.id.Rreturn);
+        createButton(Breturn,R.id.Rreturn);
         /*Breturn = (Button) findViewById(R.id.Rreturn);
         Breturn.setOnClickListener(this);*/
-        peripherique.createButton(BGoWeb,R.id.Rweb);
+        createButton(BGoWeb,R.id.Rweb);
         /*BGoWeb = (Button) findViewById(R.id.Rweb);
         BGoWeb.setOnClickListener(this);*/
         //BGoWeb.setClickable(false);
-        BGoWeb.setBackgroundColor(Color.DKGRAY);
+        //BGoWeb.setBackgroundColor(Color.DKGRAY);
     }
 
     public void onClick(View v) {
@@ -49,5 +49,10 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(openURL);
                 break;
         }
+    }
+    private boolean createButton(Button but, int R){
+        but = (Button)findViewById(R);
+        but.setOnClickListener((View.OnClickListener) this);
+        return true;
     }
 }

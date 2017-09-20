@@ -19,8 +19,9 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture);
 
-        Breturn = (Button) findViewById(R.id.Creturn);
-        Breturn.setOnClickListener(this);
+        /*Breturn = (Button) findViewById(R.id.Creturn);
+        Breturn.setOnClickListener(this);*/
+        createButton(Breturn,R.id.Creturn);
     }
 
     public void onClick(View v) {
@@ -32,5 +33,10 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(intentCapture);
                 break;
         }
+    }
+    private boolean createButton(Button but, int R){
+        but = (Button)findViewById(R);
+        but.setOnClickListener((View.OnClickListener) this);
+        return true;
     }
 }

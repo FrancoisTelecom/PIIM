@@ -17,13 +17,12 @@ import android.widget.Toast;
 
 public class LibraryActivity extends AppCompatActivity  implements View.OnClickListener{
     private Button Breturn = null; // creation des variables de la gestions des boutons
-    GestionPeripherique peripherique = new GestionPeripherique();
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-        peripherique.createButton(Breturn,R.id.Lreturn);
+        createButton(Breturn,R.id.Lreturn);
         /*Breturn = (Button) findViewById(R.id.Lreturn);
         Breturn.setOnClickListener(this);*/
 
@@ -47,5 +46,10 @@ public class LibraryActivity extends AppCompatActivity  implements View.OnClickL
                 startActivity(intentLibrary);
                 break;
         }
+    }
+    private boolean createButton(Button but, int R){
+        but = (Button)findViewById(R);
+        but.setOnClickListener((View.OnClickListener) this);
+        return true;
     }
 }
