@@ -75,33 +75,6 @@ public class LibraryActivity extends AppCompatActivity  implements View.OnClickL
                 break;
         }
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            // vérification que l'opération s'est bien déroulée
-            if (requestCode == IMAGE_GALLERY_REQUEST) {
-                // vérification à quel intent on fait référence ici à l'aide de notre identifiant
-
-                // l'adresse de l'image dans la carte SD
-                Uri imageUri = data.getData();
-                // Flux pour lire les données de la carte SD
-                InputStream inputStream;
-                try {
-                    inputStream = getContentResolver().openInputStream(imageUri);
-                    // obtention d'une image Bitmap
-                    Bitmap image = BitmapFactory.decodeStream(inputStream);
-                    // Montre l'image à l'utilisateur
-                    imgPicture.setImageBitmap(image);
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    // Message à l'utilisateur
-                    Toast.makeText(this, "Unable to open image", Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-    }
-
 
 
     private boolean createButton(Button but, int R){

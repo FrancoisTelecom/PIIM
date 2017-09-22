@@ -18,6 +18,14 @@
             android:text="Return"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="8dp" />
+
+        <Button
+            android:id="@+id/TakePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prend ta photo !"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="-3dp" />
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
