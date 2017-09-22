@@ -12,11 +12,12 @@
 
         <Button
             android:id="@+id/Creturn"
-            android:layout_width="match_parent"
+            android:layout_width="368dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:text="Return"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="8dp" />
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

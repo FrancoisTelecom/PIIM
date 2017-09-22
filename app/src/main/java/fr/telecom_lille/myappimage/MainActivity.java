@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.*;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button BTakePhoto = null; // creation des variables de la gestions des boutons
     private Button BPhotoLibrary = null;
     private Button BAnalysis = null;
+    public final static int KEY_LIBRARY = 1; // variable des Intents
+    public final static String NOMBRE_PICTURE = "fr.telecom_lille.myappimage.NOMBRES";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        //imgView.setImageDrawable(getResources().getDrawable(R.drawable.coca));
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // vérification à quel intent on fait référence ici à l'aide de notre identifiant
+        if (requestCode == KEY_LIBRARY) {
+            // vérification que l'opération s'est bien déroulée
+            if (resultCode == RESULT_OK) {
+                // affichage du bouton choisi
+                Toast.makeText(this, "le code est  "+ data.getIntExtra(NOMBRE_PICTURE,-1), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     public void onClick(View v) {
         switch(v.getId()) {
