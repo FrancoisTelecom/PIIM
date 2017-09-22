@@ -1,14 +1,11 @@
 package fr.telecom_lille.myappimage;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -22,16 +19,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         createButton(BTakePhoto,R.id.TakePhoto);
-        /*BTakePhoto = (Button) findViewById(R.id.TakePhoto);
-        BTakePhoto.setOnClickListener(this);*/
         createButton(BPhotoLibrary,R.id.PhotoLibrary);
-       /*BPhotoLibrary = (Button) findViewById(R.id.PhotoLibrary);
-        BPhotoLibrary.setOnClickListener(this);*/
         createButton(BAnalysis,R.id.Analysis);
-        /*BAnalysis = (Button) findViewById(R.id.Analysis);
-        BAnalysis.setOnClickListener(this);*/
         //BAnalysis.setClickable(false);
         //BAnalysis.setBackgroundColor(Color.DKGRAY);
       //  ImageView imgView = (ImageView)findViewById(R.id.MainPicture);

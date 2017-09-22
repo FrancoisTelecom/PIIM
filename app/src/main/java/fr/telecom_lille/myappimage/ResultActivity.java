@@ -1,14 +1,12 @@
 package fr.telecom_lille.myappimage;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import android.net.Uri;
 
 /**
  * Created by ZMNF8866 on 10/09/2017.
@@ -24,11 +22,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         createButton(Breturn,R.id.Rreturn);
-        /*Breturn = (Button) findViewById(R.id.Rreturn);
-        Breturn.setOnClickListener(this);*/
         createButton(BGoWeb,R.id.Rweb);
-        /*BGoWeb = (Button) findViewById(R.id.Rweb);
-        BGoWeb.setOnClickListener(this);*/
         //BGoWeb.setClickable(false);
         //BGoWeb.setBackgroundColor(Color.DKGRAY);
     }
