@@ -37,12 +37,13 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
 
     public void onClick(View v) {
         switch(v.getId()) {
-            //fonction retours page main
+            //return main page
             case R.id.Creturn:
                 Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show();
                 Intent intentCapture = new Intent(CaptureActivity.this, MainActivity.class);
                 startActivity(intentCapture);
                 break;
+            //button take picture
             case R.id.TakePhoto:
                 dispatchTakePictureIntent();
                 galleryAddPic();
@@ -73,7 +74,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
         }
-    /*Creation de la photo dans la galerie */
+    /*Creat picture gallerie */
     /*private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -90,7 +91,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         return image;
     }*/
 
-
+    //creat buttom
     private boolean createButton(Button but, int R){
         but = (Button)findViewById(R);
         but.setOnClickListener((View.OnClickListener) this);
