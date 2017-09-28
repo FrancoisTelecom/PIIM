@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //BAnalysis.setBackgroundColor(Color.LTGRAY);
                 Intent intentTakePhoto = new Intent(MainActivity.this, CaptureActivity.class);
                 startActivity(intentTakePhoto);
+                setResult(RESULT_OK, intentTakePhoto);
+                finish();
                 break;
             // Si l'identifiant de la vue est celui du bouton photo library
             case R.id.PhotoLibrary:
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //BAnalysis.setBackgroundColor(Color.LTGRAY);
                 Intent intentPhotoLibrary = new Intent(MainActivity.this, LibraryActivity.class);
                 startActivity(intentPhotoLibrary);
+                setResult(RESULT_OK, intentPhotoLibrary);
+                finish();
                 break;
             // Si l'identifiant de la vue est celui du bouton de l'analyse
             case R.id.Analysis:
@@ -66,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.v("Etiquette", "Message à envoyer");// d=debug, e=erreur, w=warning i = information v=commun
                 Intent intentAnalysis = new Intent(MainActivity.this, ResultActivity.class);
                 startActivity(intentAnalysis);
+                setResult(RESULT_OK, intentAnalysis);
+                finish();
                 break;
         }
     }

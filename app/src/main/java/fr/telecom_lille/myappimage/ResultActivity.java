@@ -34,6 +34,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show();
                 Intent intentResult = new Intent(ResultActivity.this, MainActivity.class);
                 startActivity(intentResult);
+                setResult(RESULT_OK, intentResult);
+                finish();
                 break;
             // Si l'identifiant de la vue est celui du bouton photo library
             case R.id.Rweb:
@@ -41,6 +43,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
                 openURL.setData(Uri.parse("https://www.google.fr"));
                 startActivity(openURL);
+                setResult(RESULT_OK, openURL);
+                finish();
                 break;
         }
     }

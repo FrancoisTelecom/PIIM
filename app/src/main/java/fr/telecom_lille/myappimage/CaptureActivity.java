@@ -42,6 +42,8 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show();
                 Intent intentCapture = new Intent(CaptureActivity.this, MainActivity.class);
                 startActivity(intentCapture);
+                setResult(RESULT_OK, intentCapture);
+                //finish();
                 break;
             //button take picture
             case R.id.TakePhoto:
@@ -55,6 +57,11 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
+            setResult(RESULT_OK, takePictureIntent);
+            //Toast.makeText(this, RESULT_OK, Toast.LENGTH_SHORT).show();
+
+
         }
     }
 
