@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -23,6 +24,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView mImageView;
     String mCurrentPhotoPath;
+    DBdata db = new DBdata();
 
 
 
@@ -57,7 +59,6 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-
             setResult(RESULT_OK, takePictureIntent);
             //Toast.makeText(this, RESULT_OK, Toast.LENGTH_SHORT).show();
 
@@ -78,7 +79,9 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(String.valueOf(mCurrentPhotoPath));
         Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
+        //mediaScanIntent.setData(contentUri);
+        db.setMonUri(Uri.fromFile(f));
+        mediaScanIntent.setData(db.getMonUri());
         this.sendBroadcast(mediaScanIntent);
         }
     /*Creat picture gallerie */
