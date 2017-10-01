@@ -26,11 +26,11 @@ public class LibraryActivity extends AppCompatActivity  implements View.OnClickL
     public static final int IMAGE_GALLERY_REQUEST = 20;// variable intent
     private ImageView imgPicture;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library);
-        createButton(Breturn,R.id.Lreturn);
+        setContentView(R.layout.activity_library);// set du layout library
+        Breturn = (Button) findViewById(R.id.Lreturn); // gestion du bouton de la library
+        Breturn.setOnClickListener(this);
 
         imgPicture = (ImageView) findViewById(R.id.imageLibrary);
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
@@ -46,7 +46,6 @@ public class LibraryActivity extends AppCompatActivity  implements View.OnClickL
 
         // invoque l'activité
         startActivityForResult(photoPickerIntent, IMAGE_GALLERY_REQUEST);
-
 
     }
 
@@ -88,12 +87,5 @@ public class LibraryActivity extends AppCompatActivity  implements View.OnClickL
                 }
             }
         }
-    }
-
-
-    private boolean createButton(Button but, int R){
-        but = (Button)findViewById(R);
-        but.setOnClickListener((View.OnClickListener) this);
-        return true;
     }
 }

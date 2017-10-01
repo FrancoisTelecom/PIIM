@@ -24,8 +24,6 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
     ImageView mImageView;
     String mCurrentPhotoPath;
 
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture);
@@ -41,7 +39,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.Creturn:
                 Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show();
                 Intent intentCapture = new Intent(CaptureActivity.this, MainActivity.class);
-                startActivity(intentCapture);
+                finish();
                 break;
             //button take picture
             case R.id.TakePhoto:

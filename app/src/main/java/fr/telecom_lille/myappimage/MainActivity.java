@@ -1,6 +1,7 @@
 package fr.telecom_lille.myappimage;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,17 +16,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public final static int KEY_LIBRARY = 1; // variable des Intents
     public final static String NOMBRE_PICTURE = "fr.telecom_lille.myappimage.NOMBRES";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        createButton(BTakePhoto,R.id.TakePhoto);
-        createButton(BPhotoLibrary,R.id.PhotoLibrary);
-        createButton(BAnalysis,R.id.Analysis);
-        //BAnalysis.setClickable(false);
+        setContentView(R.layout.activity_main); // set du layout main
+        BTakePhoto = (Button) findViewById(R.id.TakePhoto);// gestion des boutons du main
+        BTakePhoto.setOnClickListener(this);
+        BPhotoLibrary = (Button) findViewById(R.id.PhotoLibrary);
+        BPhotoLibrary.setOnClickListener(this);
+        BAnalysis = (Button) findViewById(R.id.Analysis);
+        BAnalysis.setOnClickListener(this);
+       // BAnalysis.setClickable(false);
         //BAnalysis.setBackgroundColor(Color.DKGRAY);
-      //  ImageView imgView = (ImageView)findViewById(R.id.MainPicture);
-       //imgView.setImageDrawable(getResources().getDrawable(R.drawable.coca));
+        //  ImageView imgView = (ImageView)findViewById(R.id.MainPicture);
+        //imgView.setImageDrawable(getResources().getDrawable(R.drawable.coca));
 
     }
 
@@ -47,18 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Si l'identifiant de la vue est celui du bouton capture
             case R.id.TakePhoto:
                 Toast.makeText(this, "Capture", Toast.LENGTH_SHORT).show();
-                //BAnalysis.setClickable(true);
-                //BAnalysis.setBackgroundColor(Color.LTGRAY);
-                Intent intentTakePhoto = new Intent(MainActivity.this, CaptureActivity.class);
-                startActivity(intentTakePhoto);
+                //BAnalysis.setClickable(true); // set le bouton clickable
+                //BAnalysis.setBackgroundColor(Color.LTGRAY); // changement de la couleur
+                Intent intentTakePhoto = new Intent(MainActivity.this, CaptureActivity.class);// on déclare l'intent
+                startActivity(intentTakePhoto);// start de l'intent
                 break;
             // Si l'identifiant de la vue est celui du bouton photo library
             case R.id.PhotoLibrary:
                 Toast.makeText(this, "Library", Toast.LENGTH_SHORT).show();
                 //BAnalysis.setClickable(true);
-                //BAnalysis.setBackgroundColor(Color.LTGRAY);
+               // BAnalysis.setBackgroundColor(Color.LTGRAY);
                 Intent intentPhotoLibrary = new Intent(MainActivity.this, LibraryActivity.class);
-                startActivity(intentPhotoLibrary);
+                startActivityForResult(intentPhotoLibrary,KEY_LIBRARY);
                 break;
             // Si l'identifiant de la vue est celui du bouton de l'analyse
             case R.id.Analysis:
@@ -68,11 +73,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentAnalysis);
                 break;
         }
-    }
-
-    private boolean createButton(Button but, int R){
-        but = (Button)findViewById(R);
-        but.setOnClickListener((View.OnClickListener) this);
-        return true;
     }
 }
