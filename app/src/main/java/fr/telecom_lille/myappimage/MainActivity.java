@@ -52,10 +52,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Si l'identifiant de la vue est celui du bouton capture
             case R.id.TakePhoto:
                 Toast.makeText(this, "Capture", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
                 //BAnalysis.setClickable(true); // set le bouton clickable
                 //BAnalysis.setBackgroundColor(Color.LTGRAY); // changement de la couleur
                 Intent intentTakePhoto = new Intent(MainActivity.this, CaptureActivity.class);// on déclare l'intent
                 startActivity(intentTakePhoto);// start de l'intent
+=======
+                //BAnalysis.setClickable(true);
+                //BAnalysis.setBackgroundColor(Color.LTGRAY);
+                Intent intentTakePhoto = new Intent(MainActivity.this, CaptureActivity.class);
+                startActivity(intentTakePhoto);
+                setResult(RESULT_OK, intentTakePhoto);
+                finish();
+>>>>>>> OpenCVIntegration
                 break;
             // Si l'identifiant de la vue est celui du bouton photo library
             case R.id.PhotoLibrary:
@@ -63,7 +72,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //BAnalysis.setClickable(true);
                // BAnalysis.setBackgroundColor(Color.LTGRAY);
                 Intent intentPhotoLibrary = new Intent(MainActivity.this, LibraryActivity.class);
+<<<<<<< HEAD
                 startActivityForResult(intentPhotoLibrary,KEY_LIBRARY);
+=======
+                startActivity(intentPhotoLibrary);
+                setResult(RESULT_OK, intentPhotoLibrary);
+                finish();
+>>>>>>> OpenCVIntegration
                 break;
             // Si l'identifiant de la vue est celui du bouton de l'analyse
             case R.id.Analysis:
@@ -71,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.v("Etiquette", "Message à envoyer");// d=debug, e=erreur, w=warning i = information v=commun
                 Intent intentAnalysis = new Intent(MainActivity.this, ResultActivity.class);
                 startActivity(intentAnalysis);
+                setResult(RESULT_OK, intentAnalysis);
+                finish();
                 break;
         }
     }
