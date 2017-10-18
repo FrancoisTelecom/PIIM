@@ -41,13 +41,10 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.Creturn:
                 Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show();
                 Intent intentCapture = new Intent(CaptureActivity.this, MainActivity.class);
-<<<<<<< HEAD
                 finish();
-=======
                 startActivity(intentCapture);
                 setResult(RESULT_OK, intentCapture);
                 //finish();
->>>>>>> OpenCVIntegration
                 break;
             //button take picture
             case R.id.TakePhoto:
